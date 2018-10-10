@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Main{
   public static void main(String[] args) {
@@ -31,13 +32,16 @@ public class Main{
   public static void pasosMatrices(Fraccion a[], int p){
     int pasoMatrix=p;
     Fraccion paso[]=new Fraccion[a.length];
+    Fraccion base[]=new Fraccion[a.length];
+    base=Arrays.copyOf(a,a.length);
 
     while(p!=1){
-      paso[0]=Fraccion.simplificar(Fraccion.sumar(Fraccion.multiplicar(a[0],a[0]),Fraccion.multiplicar(a[1],a[2])));
-      paso[1]=Fraccion.simplificar(Fraccion.sumar(Fraccion.multiplicar(a[0],a[1]),Fraccion.multiplicar(a[1],a[3])));
-      paso[2]=Fraccion.simplificar(Fraccion.sumar(Fraccion.multiplicar(a[2],a[0]),Fraccion.multiplicar(a[3],a[2])));
-      paso[3]=Fraccion.simplificar(Fraccion.sumar(Fraccion.multiplicar(a[2],a[1]),Fraccion.multiplicar(a[3],a[3])));
+      paso[0]=Fraccion.simplificar(Fraccion.sumar(Fraccion.multiplicar(base[0],a[0]),Fraccion.multiplicar(base[1],a[2])));
+      paso[1]=Fraccion.simplificar(Fraccion.sumar(Fraccion.multiplicar(base[0],a[1]),Fraccion.multiplicar(base[1],a[3])));
+      paso[2]=Fraccion.simplificar(Fraccion.sumar(Fraccion.multiplicar(base[2],a[0]),Fraccion.multiplicar(base[3],a[2])));
+      paso[3]=Fraccion.simplificar(Fraccion.sumar(Fraccion.multiplicar(base[2],a[1]),Fraccion.multiplicar(base[3],a[3])));
 
+      a=Arrays.copyOf(paso,paso.length);
       p--;
     }
     System.out.println("\nP"+pasoMatrix);
