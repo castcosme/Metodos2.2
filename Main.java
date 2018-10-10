@@ -33,14 +33,14 @@ public class Main{
     Fraccion paso[]=new Fraccion[a.length];
 
     while(p!=1){
-      paso[0]=Fraccion.sumar(Fraccion.multiplicar(a[0],a[0]),Fraccion.multiplicar(a[1],a[2]));
-      paso[1]=Fraccion.sumar(Fraccion.multiplicar(a[0],a[1]),Fraccion.multiplicar(a[1],a[3]));
-      paso[2]=Fraccion.sumar(Fraccion.multiplicar(a[2],a[0]),Fraccion.multiplicar(a[3],a[2]));
-      paso[3]=Fraccion.sumar(Fraccion.multiplicar(a[2],a[1]),Fraccion.multiplicar(a[3],a[3]));
+      paso[0]=Fraccion.simplificar(Fraccion.sumar(Fraccion.multiplicar(a[0],a[0]),Fraccion.multiplicar(a[1],a[2])));
+      paso[1]=Fraccion.simplificar(Fraccion.sumar(Fraccion.multiplicar(a[0],a[1]),Fraccion.multiplicar(a[1],a[3])));
+      paso[2]=Fraccion.simplificar(Fraccion.sumar(Fraccion.multiplicar(a[2],a[0]),Fraccion.multiplicar(a[3],a[2])));
+      paso[3]=Fraccion.simplificar(Fraccion.sumar(Fraccion.multiplicar(a[2],a[1]),Fraccion.multiplicar(a[3],a[3])));
 
       p--;
     }
-    System.out.println("P"+pasoMatrix);
+    System.out.println("\nP"+pasoMatrix);
     for (p=0; p<paso.length; p++) {
       System.out.println(paso[p] + "      " + paso[p+1]);
       p++;

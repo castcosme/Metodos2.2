@@ -33,9 +33,9 @@ public class Fraccion {
   public static Fraccion dividir(Fraccion a, Fraccion b){
      return multiplicar(a, inversa(b));
   }
-  private int mcd(){
-     int u=Math.abs(num);
-     int v=Math.abs(den);
+  private static int mcd(Fraccion a){
+     int u=Math.abs(a.num);
+     int v=Math.abs(a.den);
      if(v==0){
           return u;
      }
@@ -47,11 +47,11 @@ public class Fraccion {
      }
      return u;
   }
-  public Fraccion simplificar(){
-     int dividir=mcd();
-     num/=dividir;
-     den/=dividir;
-     return this;
+  public static Fraccion simplificar(Fraccion a){
+     int dividir=mcd(a);
+     a.num/=dividir;
+     a.den/=dividir;
+     return a;
   }
   public String toString(){
      String texto=num+" / "+den;
