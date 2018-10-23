@@ -1,5 +1,5 @@
-// Guillermo Arturo Hernández Tapia      A01321776
-// Fernando Castillo Cosme
+//Guillermo Arturo Hernández Tapia      A01321776
+
 public class Fraccion {
 	//Miembros de datos
 	private int numerador;
@@ -123,18 +123,5 @@ public class Fraccion {
 		}
 		return null;
 	}
-
-	public boolean sonIguales(Fraccion f){
-        double gcd1 = gcd(f.obtenNumerador(), f.obtenDenominador());
-        double fractionFloatValue = (f.obtenNumerador()/gcd1) / (f.obtenDenominador()/gcd1); 
-        double gcd2 = gcd(this.obtenNumerador(), this.obtenDenominador());
-        double fractionFloatValue2 = (this.obtenNumerador()/gcd2) / (this.obtenDenominador()/gcd2);
-        return (fractionFloatValue == fractionFloatValue2) ? true : false;
-
-    }
-
-	public int gcd(int x, int y) {
-        return y == 0 ? x : gcd(y, x % y);
-    }
 
 }
