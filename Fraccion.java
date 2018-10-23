@@ -1,5 +1,5 @@
-// Guillermo Arturo Hernández Tapia      A01321776
-// Fernando Castillo Cosme
+//Guillermo Arturo Hernández Tapia      A01321776
+
 public class Fraccion {
 	//Miembros de datos
 	private int numerador;
@@ -139,7 +139,7 @@ public class Fraccion {
 
 
 		//aber
-		public static Fraccion sumar(Fraccion a, Fraccion b){	  
+		public static Fraccion sumar(Fraccion a, Fraccion b){
 			 int num = a.obtenNumerador()*b.obtenDenominador() + b.obtenNumerador() * a.obtenDenominador();
 			 int den = a.obtenDenominador() * b.obtenDenominador();
 			 return new Fraccion (num, den);
