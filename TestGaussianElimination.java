@@ -22,7 +22,7 @@ public class TestGaussianElimination{
 
         System.out.println("Soluciones:");
         for(int i=0; i < n; i++){
-            System.out.println("x[" + (i+1) + "] = " + v[i].consFraccion(1));    
+            System.out.println("x[" + (i+1) + "] = " + v[i].consFraccion(1));
         }
     }
 }

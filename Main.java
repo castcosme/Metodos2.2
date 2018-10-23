@@ -4,21 +4,48 @@ import java.math.BigInteger;
 
 public class Main{
   public static void main(String[] args) {
+    Fraccion [][] P;
+    Fraccion[] b, v;
+    GaussianElimination ge = new GaussianElimination();
+
     int s, i, j, pasos;
     Scanner sc = new Scanner(System.in);
     s = Integer.parseInt(sc.next());
     int saltodelinea = s;
+
+    P = new Fraccion[s][s];
+    b = new Fraccion[s];
+    for (i=0; i<s; i++) {
+      b[i]=new Fraccion(1);
+    }
+
+    int estadosInt[]= new int [s*s*2];
+
     BigInteger estados[]= new BigInteger[s*s*2];
     FraccionBigInt arr[] = new FraccionBigInt[s*s];
     FraccionBigInt dosD[][] = new FraccionBigInt[s][s];
+
     for (i=0; i<estados.length; i++) {
       estados[i]=sc.nextBigInteger();
+      estadosInt[i]=estados[i].intValue();
     }
+
     int c=0;
     for (i=0; i<arr.length; i++) {
       arr[i]=new FraccionBigInt(estados[c], estados[c+1]);
       c+=2;
     }
+
+    int d=0;
+    for (i=0; i<s; i++) {
+      for (j=0; j<s; j++) {
+        P[i][j]=new Fraccion(estadosInt[d], estadosInt[d+1]);
+        d+=2;
+      }
+    }
+
+    v=ge.GaussianElim(P,b);
+
 
     pasos =Integer.parseInt(sc.next());
     System.out.println("P1:");
@@ -41,6 +68,11 @@ public class Main{
 
     for (i=2; i<=pasos; i++) {
       pasosMatrices(dosD,i, s);
+    }
+
+    System.out.println("\nSoluciones:");
+    for(i=0; i < s; i++){
+        System.out.println("x[" + (i+1) + "] = " + v[i].consFraccion(1));
     }
   }
 
